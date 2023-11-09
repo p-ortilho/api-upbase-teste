@@ -1,0 +1,111 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+      "title": "API de Registros de Alunos",
+      "version": "1.0.0"
+    },
+    "paths": {
+      "/registrations": {
+        "get": {
+          "summary": "Retorna todos os registros de usuários",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        },
+        "post": {
+          "summary": "Cria um novo registro de usuário",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Registro criado com sucesso"
+            }
+          }
+        }
+      },
+      "/registration/{id}": {
+        "delete": {
+          "summary": "Remove um registro de usuário pelo ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Registro removido com sucesso"
+            }
+          }
+        },
+        "put": {
+          "summary": "Atualiza um registro de usuário pelo ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Registro atualizado com sucesso"
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "User": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "usuario": {
+              "type": "string"
+            },
+            "senha": {
+              "type": "string"
+            },
+            "confirmacao": {
+              "type": "string"
+            },
+            "tipo": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+  
