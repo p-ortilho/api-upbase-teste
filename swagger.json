@@ -21,7 +21,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/User"
+                  "$ref": "#/components/schemas/Post"
                 }
               }
             }
@@ -33,7 +33,7 @@
           }
         }
       },
-      "/registration/{id}": {
+      "/registrations/{id}": {
         "delete": {
           "summary": "Remove um registro de usuário pelo ID",
           "parameters": [
@@ -68,7 +68,7 @@
               "in": "body",
               "required": true,
               "schema": {
-                "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/Put"
               }
             }
           ],
@@ -88,7 +88,7 @@
             "id": {
               "type": "integer"
             },
-            "name": {
+            "nome": {
               "type": "string"
             },
             "usuario": {
@@ -101,6 +101,40 @@
               "type": "string"
             },
             "tipo": {
+              "type": "string"
+            }
+          }
+        },
+        "Post":{
+          "type": "object",
+          "properties": {
+            "nome": {
+              "type":"string"
+            },
+            "usuario": {
+              "type": "string"
+            },
+            "senha": {
+              "type": "string"
+            },
+            "confirmacao": {
+              "type": "string"
+            },
+            "tipo": {
+              "type": "string"
+            }
+          }
+        },
+        "Put":{
+          "type": "object",
+          "properties": {
+            "usuario": {
+              "type": "string"
+            },
+            "senha": {
+              "type": "string"
+            },
+            "confirmacao": {
               "type": "string"
             }
           }
